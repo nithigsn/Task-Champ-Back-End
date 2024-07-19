@@ -1,31 +1,26 @@
-// 🔖 imports 
+// imports 
 const express = require('express');
 const mongoose = require('mongoose');
 
-// ----------------------------------------------------------------------------------------------
-//           YOUR MONGOOSE SCHEMA AND MODEL CODE
-// ----------------------------------------------------------------------------------------------
 
-// 🔖 Schema code  
+//  Schema code  
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     items: { type: [String], default: [] }
 });
 
-// 🔖 Mongoose provides a comprehensive set of validation options
+//  Mongoose provides a comprehensive set of validation options
 // type     : It is used to determine the Type.
 // required : It will make sure, while create new data, this field is mandatory.
 // unique   : it will make sure, if any new data, came, this field should be unique.
 // default  : This says, if use didn't gave any data while creation.
 //              by default we can provide a value by ourself.
 
-// 🔖 create model out of Schema above.
+//  create model out of Schema above.
 const UserModel = mongoose.model("user", userSchema);
 
-// ----------------------------------------------------------------------------------------------
-//           YOUR ROUTER CODE
-// ----------------------------------------------------------------------------------------------
+
 // ⚠️ ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖ ⚠️
 // ⚠️ RULES TO FOLLOW WHILE WRITING ROUTER CODE ⚠️
 // 1️⃣ your arrow function should start with [ async ] 
